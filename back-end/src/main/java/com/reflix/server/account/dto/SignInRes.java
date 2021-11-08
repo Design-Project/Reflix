@@ -1,4 +1,4 @@
-package com.reflix.server.configure.account.dto;
+package com.reflix.server.account.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class SignInRes {
 
     private Long accountId;
+
+    private String email;
 
     private String jwt;
 

@@ -1,8 +1,8 @@
-package com.reflix.server.configure.account.dto;
+package com.reflix.server.account.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.reflix.server.configure.account.entity.Account;
+import com.reflix.server.account.entity.Account;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -36,7 +36,6 @@ public class AccountAuthDto {
     @Length(min=8, max= 50)
     private String password;
 
-    @NotBlank
     @Pattern(regexp = "^[0-9-]{3,20}$")
     private String phoneNumber;
 

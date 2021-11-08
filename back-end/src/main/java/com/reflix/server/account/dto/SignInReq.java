@@ -1,4 +1,4 @@
-package com.reflix.server.configure.account.dto;
+package com.reflix.server.account.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -16,9 +17,8 @@ import javax.validation.constraints.Pattern;
 public class SignInReq {
 
     @NotBlank
-    @Length(min=3, max = 30)
-    @Pattern(regexp = "^[a-zA-Z0-9_-]{3,20}$")
-    private String signInId;;
+    @Email
+    private String email;;
 
     @NotBlank
     @Length(min=8, max= 50)

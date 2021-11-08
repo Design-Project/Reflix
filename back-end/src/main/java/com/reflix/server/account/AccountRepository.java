@@ -1,6 +1,6 @@
-package com.reflix.server.configure.account;
+package com.reflix.server.account;
 
-import com.reflix.server.configure.account.entity.Account;
+import com.reflix.server.account.entity.Account;
 import com.reflix.server.configure.entity.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 
