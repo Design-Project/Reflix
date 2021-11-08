@@ -1,6 +1,6 @@
 package com.reflix.server.configure.security.authentication;
 
-import com.reflix.server.configure.account.entity.Account;
+import com.reflix.server.account.entity.Account;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

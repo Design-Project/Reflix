@@ -1,8 +1,8 @@
-package com.reflix.server.configure.account.entity;
+package com.reflix.server.account.entity;
 
-import com.reflix.server.configure.account.dto.AccountAuthDto;
-import com.reflix.server.configure.account.entity.enumtypes.OAuthType;
-import com.reflix.server.configure.account.entity.enumtypes.RoleType;
+import com.reflix.server.account.dto.AccountAuthDto;
+import com.reflix.server.account.entity.enumtypes.OAuthType;
+import com.reflix.server.account.entity.enumtypes.RoleType;
 import com.reflix.server.configure.entity.BaseTimeEntity;
 import com.reflix.server.configure.entity.Status;
 import lombok.AllArgsConstructor;
