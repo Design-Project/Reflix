@@ -1,7 +1,7 @@
 package com.reflix.server.configure.security.jwt;
 
-import com.project.kcookserver.account.entity.enumtypes.RoleType;
-import com.project.kcookserver.configure.response.exception.CustomExceptionStatus;
+import com.reflix.server.account.entity.enumtypes.RoleType;
+import com.reflix.server.configure.response.exception.CustomExceptionStatus;
 import io.jsonwebtoken.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

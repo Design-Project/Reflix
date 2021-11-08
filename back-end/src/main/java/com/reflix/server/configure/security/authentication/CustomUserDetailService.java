@@ -1,7 +1,7 @@
 package com.reflix.server.configure.security.authentication;
 
-import com.reflix.server.configure.account.AccountRepository;
-import com.reflix.server.configure.account.entity.Account;
+import com.reflix.server.account.AccountRepository;
+import com.reflix.server.account.entity.Account;
 import com.reflix.server.configure.response.exception.CustomException;
 import com.reflix.server.configure.response.exception.CustomExceptionStatus;
 import lombok.RequiredArgsConstructor;
