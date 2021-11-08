@@ -1,14 +1,6 @@
 <template>
   <div>
-    <div class="header">
-      <ul class="header-button-left">
-        <li>Cancel</li>
-      </ul>
-      <ul class="header-button-right">
-        <li>Next</li>
-      </ul>
-      <img src="./assets/logo.png" class="logo" />
-    </div>
+
 
     <router-view />
 
