@@ -15,7 +15,7 @@ const routes = [
   },
 
   {
-    path: "/2000",
+    path: "/accounts/auth",
     name: "Accunt",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -25,13 +25,23 @@ const routes = [
   },
 
   {
-    path: "/3000",
+    path: "/login",
     name: "Login",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../components/Login")
+  },
+
+  {
+    path: "/sign-up",
+    name: "Register",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../components/Register")
   }
 ]
 
