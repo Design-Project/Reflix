@@ -172,5 +172,6 @@ export default {
 .account {
   margin-left: 200px;
   margin-top: 50px;
+  width: 50%;
 }
 </style>

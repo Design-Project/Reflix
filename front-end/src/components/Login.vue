@@ -1,5 +1,6 @@
 <template>
   <div class="mt-5">
+    <img src="../assets/reflixlogo.png" class="loginimage" />
     <div class="row mb-3 p-4">
       <label
         for="colFormLabelLg"
@@ -39,7 +40,7 @@
       >
     </div>
     <div class="d-grid gap-2 col-6 mx-auto mt-5">
-      <button class="btn btn-primary" type="button" @click="login(loginObj)">
+      <button class="btn btn-danger" type="button" @click="login(loginObj)">
         로그인
       </button>
     </div>
@@ -66,5 +67,10 @@ export default {
 <style>
 .login {
   margin-top: 100px;
+}
+.loginimage{
+  margin-top: 10px;
+  margin-left: 160px;
+  width: 40%;
 }
 </style>
