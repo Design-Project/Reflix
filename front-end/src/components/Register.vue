@@ -1,5 +1,6 @@
 <template>
   <div class="center">
+    <img src="../assets/reflixlogo.png" />
     <form>
       <div class="mb-3">
         <label for="InputEmail" class="form-label">Email address</label>
@@ -49,8 +50,8 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
-      <button type="submit" class="btn btn-primary" @click="signUp(signUpObj)">
-        Submit
+      <button type="Submit" class="btn btn-danger" @click="signUp(signUpObj)">
+        회원가입
       </button>
     </form>
   </div>
@@ -93,6 +94,12 @@ export default {
 .center {
   width: 600px;
   padding-top: 50px;
+  margin: 0 auto;
+}
+.logo {
+  width: 200px;
+  padding-top: 50px;
+  padding-bottom: 50px;
   margin: 0 auto;
 }
 </style>
