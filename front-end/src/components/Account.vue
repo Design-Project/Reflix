@@ -4,15 +4,18 @@
       <a class="accountName">{{ 계정이름 }}님의 reflix</a>
     </div>
 
+    <img src="../assets/reflixlogo.png" class="loginimage" />
+
     <div class="account">
+      
       <img src="../assets/image.png" class="accimage" />
       <!-- 계정이미지 불러오기 -->
     </div>
-    <h4 style="margin-left: 190px">{{ 계정이름 }}</h4>
+    <h4 style="margin-left: 210px">{{ 계정이름 }}</h4>
       <!--계정이름 불러오기 -->
 
     <div>
-      <p style="margin-left:200px">{{나이}} / {{성별}} </p>
+      <p style="margin-left:220px">{{나이}} / {{성별}} </p>
     </div>
     <div class="row">
       <div class="col-4" > <a class="mypick">My Pick! </a>  </div>
@@ -121,30 +124,34 @@ export default {
 </script>
 
 <style>
+.loginimage{
+  width: 30%;
+  margin-left: 180px;
+}
 .picktext{
-  background-color: cornflowerblue;
+  background-color: pink;
   color: white;
   margin-left: 10px;
 }
 
 .mypick{
-  color: darkslateblue;
+  color: red;
   margin-left: 80px;
   margin-bottom: 10px;
 }
 
 .bottom{
-  background-color: darkslateblue;
+  background-color: red;
   margin-top: 20px;
   padding: 20px;
 
 }
 .rank{
-  background-color: darkslateblue;
+  background-color: red;
   padding: 3px;
   border-radius: 20px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 110px;
+  margin-right: 130px;
   margin-top:10px;
 }
 .ranktext{
@@ -156,7 +163,7 @@ export default {
   margin-left: 200px;
 }
 .top {
-  background-color: darkslateblue;
+  background-color: red;
   padding: 15px;
 }
 .accountName {
@@ -166,11 +173,12 @@ export default {
 }
 .accimage {
   width: 30%;
-  margin-right: 500px;
+  margin-right: 450px;
   border-radius: 50px;
+  
 }
 .account {
-  margin-left: 200px;
-  margin-top: 50px;
+  margin-left: 210px;
+  margin-top: 10px;
 }
 </style>
