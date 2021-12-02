@@ -1,6 +1,6 @@
 <template>
-  <div class="center">
-    <img src="../assets/reflixlogo.png" />
+  <div class="m-5">
+    <img src="../assets/reflixlogo.png" class="loginimage" />
     <form>
       <div class="mb-3">
         <label for="InputEmail" class="form-label">Email address</label>
@@ -50,24 +50,30 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
-      <button type="Submit" class="btn btn-danger" @click="signUp(signUpObj)">
+      <button class="btn btn-danger" type="button" @click="signUp(signUpObj)">
         회원가입
+      </button>
+
+      <button
+        class="btn btn-info left-button"
+        type="button"
+        @click="goToMain()"
+      >
+        메인으로
       </button>
     </form>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex"
+import axios from "axios"
 export default {
-  name: "Register",
   data() {
     return {
       signUpObj: {
         email: "",
         password: "",
-        nickname: "",
-        phoneNumber: ""
+        nickname: ""
       },
       confirmPassword: "",
       isSamePwd: true
@@ -77,8 +83,20 @@ export default {
     this.isSamePwd = true
   },
   methods: {
-    methods: {
-      ...mapActions(["signUp"])
+    goToMain() {
+      this.$router.push({
+        name: "Main"
+      })
+    },
+    signUp(value) {
+      axios
+        .post("https://prod.reflix.club/app/sign-up", value)
+        .then(() => {
+          this.goToMain()
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
     },
     sameChk() {
       if (this.signUpObj.password == this.confirmPassword) return true
@@ -91,15 +109,11 @@ export default {
 </script>
 
 <style>
-.center {
-  width: 600px;
-  padding-top: 50px;
-  margin: 0 auto;
+.loginimage {
+  width: 50%;
+  margin-left: 100px;
 }
-.logo {
-  width: 200px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  margin: 0 auto;
+.left-button {
+  margin-left: 20px;
 }
 </style>

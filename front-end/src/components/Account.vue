@@ -52,9 +52,15 @@
         <p class="col-2"><mark>게시물 </mark></p>
       </div>
       <div class="row">
-        <h4 class="col-2" style="margin-left: 135px"><mark>362 </mark></h4>
-        <h4 class="col-2"><mark>331 </mark></h4>
-        <h4 class="col-2" style="margin-left: 10px"><mark> 3 </mark></h4>
+        <h4 class="col-2" style="margin-left: 135px">
+          <mark>{{ follow }} </mark>
+        </h4>
+        <h4 class="col-2">
+          <mark>{{ following }} </mark>
+        </h4>
+        <h4 class="col-2" style="margin-left: 10px">
+          <mark> {{ postCount }} </mark>
+        </h4>
       </div>
 
       <div class="rank">
@@ -98,14 +104,38 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: "Accont",
   data() {
     return {
-      계정이름: "dahlia_hee",
-      나이: "20대",
-      성별: "여자"
+      계정이름: "",
+      나이: "",
+      성별: "",
+      follow: 0,
+      following: 0,
+      postCount: 0
     }
+  },
+  methods: {
+    getAccountInfo(nickname) {
+      axios
+        .get(`https://prod.reflix.club/app/accounts/auth/${nickname}`)
+        .then((res) => {
+          this.계정이름 = res.data.result.nickname
+          this.나이 = res.data.result.age + "대"
+          this.성별 = res.data.result.gender
+          this.follow = res.data.result.follow
+          this.following = res.data.result.following
+          this.postCount = res.data.result.postCount
+        })
+        .catch((err) => {
+          alert(err.response.data.message)
+        })
+    }
+  },
+  created: function () {
+    this.getAccountInfo(this.$route.query.username)
   }
 }
 </script>

@@ -40,8 +40,11 @@
       >
     </div>
     <div class="d-grid gap-2 col-6 mx-auto mt-5">
-      <button class="btn btn-danger" type="button" @click="login(loginObj)">
+      <button class="btn btn-danger" type="button" @click="getLogin(loginObj)">
         로그인
+      </button>
+      <button class="btn btn-info" type="button" @click="goToRegister()">
+        회원가입
       </button>
     </div>
   </div>
@@ -59,7 +62,18 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["login"])
+    ...mapActions(["login"]),
+    goToRegister() {
+      this.$router.push({
+        name: "Register"
+      })
+    },
+    getLogin(loginObj) {
+      this.login(loginObj)
+      this.$router.push({
+        name: "Main"
+      })
+    }
   }
 }
 </script>
@@ -68,7 +82,7 @@ export default {
 .login {
   margin-top: 100px;
 }
-.loginimage{
+.loginimage {
   margin-top: 10px;
   margin-left: 160px;
   width: 40%;
