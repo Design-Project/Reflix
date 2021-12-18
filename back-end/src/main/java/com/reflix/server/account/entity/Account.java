@@ -5,6 +5,7 @@ import com.reflix.server.account.entity.enumtypes.OAuthType;
 import com.reflix.server.account.entity.enumtypes.RoleType;
 import com.reflix.server.configure.entity.BaseTimeEntity;
 import com.reflix.server.configure.entity.Status;
+import com.reflix.server.movie.entity.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,6 +13,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.reflix.server.configure.entity.Status.*;
 
@@ -55,6 +58,19 @@ public class Account extends BaseTimeEntity {
 
     private boolean isSmsCertified;
 
+    private Integer age;
+
+    private String gender;
+
+    private Long follow;
+
+    private Long following;
+
+    private Long postCount;
+
+    @OneToMany(mappedBy = "account")
+    private List<Movie> movies = new ArrayList<>();
+
     public static Account createAccount(AccountAuthDto dto) {
 
         return Account.builder()
@@ -64,6 +80,9 @@ public class Account extends BaseTimeEntity {
                 .phoneNumber(dto.getPhoneNumber())
                 .status(VALID)
                 .role(RoleType.ROLE_USER)
+                .follow(0L)
+                .following(0L)
+                .postCount(0L)
                 .build();
     }
 
