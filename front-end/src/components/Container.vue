@@ -1,20 +1,37 @@
 <template>
   <div>
-    <Post1/>
-    <Post2/>
-    <Post3/>
+    <b-container>
+      <b-row class="text-center">
+        <b-col cols="4" v-for="movie in movieRank" v-bind:key="movie.rank">
+          <b-col><MovieInfo v-bind:movie="movie" /></b-col>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
-import Post1 from './Post1.vue'
-import Post2 from './Post2.vue'
-import Post3 from './Post3.vue'
+import MovieInfo from "./MovieInfo.vue"
+import axios from "axios"
+
 export default {
-    components : {
-    Post1,
-    Post2,
-    Post3,
+  data() {
+    return {
+      movieRank: null
+    }
+  },
+  components: {
+    MovieInfo
+  },
+  created: function () {
+    axios
+      .get("/app/movies/ranking")
+      .then((res) => {
+        this.movieRank = res.data.result
+      })
+      .catch((err) => {
+        alert(err.response.data.message)
+      })
   }
 }
 </script>

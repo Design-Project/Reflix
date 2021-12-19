@@ -120,7 +120,7 @@ export default {
   methods: {
     getAccountInfo(nickname) {
       axios
-        .get(`https://prod.reflix.club/app/accounts/auth/${nickname}`)
+        .get(`/app/accounts/auth/${nickname}`)
         .then((res) => {
           this.계정이름 = res.data.result.nickname
           this.나이 = res.data.result.age + "대"

@@ -1,22 +1,56 @@
 <template>
   <div>
+    <div class="header">
+      <div class="header-button-left">
+        <div v-if="isLogin" @click="goToAuthAccountInfo()">
+          Hello {{ userInfo.nickname }}
+        </div>
+      </div>
+      <div class="header-button-right">
+        <div v-if="!isLogin" @click="goToLogin()">login</div>
+        <div v-else @click="logout">logout</div>
+      </div>
+      <img src="./assets/reflixlogo.png" class="logo" />
+    </div>
 
+    <div style="width: 100%"><router-view /></div>
 
-    <router-view />
-
-    <!-- <div class="footer">
-    <ul class="footer-button-plus">
-      <input type="file" id="file" class="inputfile" />
-      <label for="file" class="input-plus">+</label>
-    </ul>
-  </div> -->
+    <div class="footer">
+      <ul class="footer-button-plus">
+        <!-- <input type="file" id="file" class="inputfile" /> -->
+        <label @click="goPostCreate()" for="file" class="input-plus">+</label>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex"
 export default {
   name: "App",
-  components: {}
+  components: {},
+  computed: {
+    ...mapState(["isLogin", "userInfo"])
+  },
+  methods: {
+    ...mapMutations(["logout"]),
+    goPostCreate() {
+      this.$router.push({
+        name: "CreatePost"
+      })
+    },
+    goToLogin() {
+      this.$router.push({
+        name: "Login"
+      })
+    },
+    goToAuthAccountInfo() {
+      this.$router.push({
+        name: "Account",
+        query: { username: this.userInfo.nickname }
+      })
+    }
+  }
 }
 </script>
 
@@ -29,7 +63,7 @@ ul {
   list-style-type: none;
 }
 .logo {
-  width: 22px;
+  width: 50px;
   margin: auto;
   display: block;
   position: absolute;
@@ -48,7 +82,7 @@ ul {
 .header-button-left {
   color: skyblue;
   float: left;
-  width: 50px;
+
   padding-left: 20px;
   cursor: pointer;
   margin-top: 10px;
@@ -59,6 +93,7 @@ ul {
   width: 50px;
   cursor: pointer;
   margin-top: 10px;
+  margin-right: 20px;
 }
 .footer {
   width: 100%;
