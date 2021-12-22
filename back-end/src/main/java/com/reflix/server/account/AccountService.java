@@ -1,10 +1,10 @@
 package com.reflix.server.account;
 
 import com.reflix.server.account.dto.AccountAuthDto;
+import com.reflix.server.account.dto.AccountInfoRes;
 import com.reflix.server.account.dto.SignInReq;
 import com.reflix.server.account.dto.SignInRes;
 import com.reflix.server.account.entity.Account;
-import com.reflix.server.configure.entity.Status;
 import com.reflix.server.configure.response.exception.CustomException;
 import com.reflix.server.configure.response.exception.CustomExceptionStatus;
 import com.reflix.server.configure.security.authentication.CustomUserDetails;
@@ -73,4 +73,9 @@ public class AccountService {
         return dto;
     }
 
+    public AccountInfoRes getAccountInfo(String nickname) {
+        Account account = accountRepository.findByNicknameAndStatus(nickname, VALID)
+                .orElseThrow(() -> new CustomException(CustomExceptionStatus.ACCOUNT_NOT_VALID));
+        return new AccountInfoRes(account);
+    }
 }

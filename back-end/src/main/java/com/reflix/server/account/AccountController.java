@@ -1,9 +1,6 @@
 package com.reflix.server.account;
 
-import com.reflix.server.account.dto.AccountAuthDto;
-import com.reflix.server.account.dto.NicknameReq;
-import com.reflix.server.account.dto.SignInReq;
-import com.reflix.server.account.dto.SignInRes;
+import com.reflix.server.account.dto.*;
 import com.reflix.server.configure.response.CommonResponse;
 import com.reflix.server.configure.response.DataResponse;
 import com.reflix.server.configure.response.ResponseService;
@@ -59,6 +56,13 @@ public class AccountController {
         if (errors.hasErrors()) ValidationExceptionProvider.throwValidError(errors);
         accountService.getNicknameValidation(dto.getNickname());
         return responseService.getSuccessResponse();
+    }
+
+    @Operation(summary = "프로필 조회 API", description = "닉네임으로 api 조회")
+    @GetMapping(value = "/accounts/auth/{nickname}")
+    public DataResponse<AccountInfoRes> getAccountInfo(@PathVariable(value = "nickname") String nickname) {
+        AccountInfoRes dto = accountService.getAccountInfo(nickname);
+        return responseService.getDataResponse(dto);
     }
 
 }
