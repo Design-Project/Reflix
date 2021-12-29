@@ -5,6 +5,9 @@ import store from "./store"
 import BootstrapVue from "bootstrap-vue"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
+import moment from "moment"
+
+Vue.prototype.moment = moment
 
 Vue.use(BootstrapVue)
 
