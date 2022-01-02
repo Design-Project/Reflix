@@ -16,6 +16,8 @@ public class CustomUserDetails implements UserDetails {
         return account;
     }
 
+    public String getEmail() {return account.getEmail();}
+
     public CustomUserDetails(Account account){
         this.account = account;
     }
