@@ -1,33 +1,36 @@
 <template>
-<div class = "center">
-  <div class="header">
-    <ul class="header-button-left">
-      <li>Cancel</li>
-    </ul>
-    <ul class="header-button-right">
-      <li>Next</li>
-    </ul>
-    <img src="https://emojigraph.org/media/twitter/brown-heart_1f90e.png" class="logo" />
-  </div>
+  <div class="center">
+    <div class="header">
+      <ul class="header-button-left">
+        <li>Cancel</li>
+      </ul>
+      <ul class="header-button-right">
+        <li>Next</li>
+      </ul>
+      <img
+        src="https://emojigraph.org/media/twitter/brown-heart_1f90e.png"
+        class="logo"
+      />
+    </div>
 
-  <Container />
+    <Container />
 
-  <div class="footer">
-    <ul class="footer-button-plus">
-      <input type="file" id="file" class="inputfile" />
-      <label for="file" class="input-plus">+</label>
-    </ul>
+    <div class="footer">
+      <ul class="footer-button-plus">
+        <input type="file" id="file" class="inputfile" />
+        <label for="file" class="input-plus">+</label>
+      </ul>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
-import Container from './Container.vue'
+import Container from "./Container.vue"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Container : Container
+    Container: Container
   }
 }
 </script>
@@ -49,7 +52,7 @@ ul {
   right: 0;
   top: 13px;
 }
-.center{
+.center {
   width: 600px;
   margin: 0 auto;
 }
