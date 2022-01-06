@@ -90,7 +90,7 @@ export default {
     },
     signUp(value) {
       axios
-        .post("https://prod.reflix.club/app/sign-up", value)
+        .post("/app/sign-up", value)
         .then(() => {
           this.goToMain()
         })

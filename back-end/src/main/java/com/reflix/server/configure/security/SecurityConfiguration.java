@@ -28,7 +28,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final JwtTokenProvider jwtTokenProvider;
     private final AuthenticationEntryPoint authenticationEntryPoint;
-    
 
     @Value("${mapping.url}")
     private String mappingUrl;
@@ -66,7 +65,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/app/sign-in", "/app/sign-up","/app/accounts/nickname/validation").permitAll()
-                .antMatchers(HttpMethod.GET, "/errors/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/errors/**","/app/movies/ranking","/app/accounts/auth/{nickname}","/app/movies/name/{title}", "/app/images/api/{keyword}","/app/movies/posts", "/app/movies/posts/{postId}/replies").permitAll()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .anyRequest().authenticated()
                 .and()
